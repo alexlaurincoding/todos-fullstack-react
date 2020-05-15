@@ -17,7 +17,7 @@ function App() {
             <header className="App-header">
                 <img src={logo} className="App-logo" alt="logo" />
                 <p>
-                    Edit <code>src/App.js</code> and save crissss to reload.
+                    Edit <code>src/App.js</code> CRISSSSSSS toi-meme!!!!
                 </p>
                 <button onClick={handleClick}>load Data</button>
                 <p>{data}</p>
