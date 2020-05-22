@@ -12,7 +12,8 @@ router.post("/todos", async  (req, res) => {
         const todo = new Todo({
             titre: req.body.titre,
             description: req.body.description,
-            statut: req.body.statut
+            statut: req.body.statut,
+            categorie: req.body.categorie
         })
         await todo.save();
         res.send(todo);

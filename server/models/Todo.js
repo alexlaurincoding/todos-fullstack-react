@@ -1,10 +1,10 @@
 const mongoose = require("mongoose");
 
 const schema = mongoose.Schema({
-   //_id: Number,
     titre: String,
     description: String,
-    statut: String
+    statut: String,
+    categorie: String
 });
 
 module.exports = mongoose.model("Todo", schema);
