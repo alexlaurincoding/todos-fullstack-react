@@ -24,5 +24,28 @@ router.post("/todos", async  (req, res) => {
     }
 })
 
+router.delete("/todos/:_id", async  (req, res) => {
+    try {
+        await Todo.findByIdAndDelete(req.params._id);
+        res.status(204).send();
+    }
+    catch (e) {
+        console.log(e)
+        res.status(404);
+        res.send("Ce Todo n'existe pas!");
+    }
+})
+
+router.patch("/todos/:_id", async  (req, res) => {
+    try {
+        const todo = await Todo.findByIdAndUpdate(req.params._id, req.body, {new: true});
+        res.send(todo);
+    }
+    catch (e) {
+        console.log(e)
+        res.status(404);
+        res.send("Ce Todo n'existe pas!");
+    }
+})
 
 module.exports = router;
