@@ -24,5 +24,14 @@ router.post("/todos", async  (req, res) => {
     }
 })
 
+router.get("/todos/:_id", async  (req, res) => {
+    try {
+        const todo = await Todo.findOne({_id: req.params._id}).orFail()
+        res.send(todo)
+    }catch{
+        res.statut(404)
+    res.send({error: "Todo not found"})
+    }
+})
 
 module.exports = router;
