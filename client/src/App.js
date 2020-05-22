@@ -65,10 +65,9 @@ function App() {
 
                 <ListGroup style={{color: "black"}}>
                     {todos.map(todo => <ListGroup.Item>{todo.titre}
-                    <Button style={{marginLeft: 20}} id = {todo._id} variant="primary" type= "submit" onClick={fait} className="mt-3 mb-3">
-                            Fait</Button>
-                    <Button style={{marginLeft: 20}} id = {todo._id} variant="danger" type= "submit" onClick={retirer} className="mt-3 mb-3">
-                        Retirer</Button>
+                    <Button style={{marginLeft: 20}} id = {todo._id} variant="success" type= "submit" onClick={fait} className="mt-3 mb-3">&#10003;</Button>
+                    <Button style={{marginLeft: 20, paddingLeft: 13, paddingRight: 13, fontStyle:"italic" }} id = {todo._id} variant="danger" type= "submit" onClick={retirer} className="mt-3 mb-3">
+                    X</Button>
                     </ListGroup.Item>)}
                 </ListGroup>
             </header>
