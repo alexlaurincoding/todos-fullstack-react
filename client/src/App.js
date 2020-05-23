@@ -36,9 +36,15 @@ function App() {
         const res = await axios.delete(link);
         afficherTout();
     }
-    const fait = (event) => {
-        //candidats[event.target.id].vote++;
+
+    const fait = async(event) => {
         event.preventDefault();
+        const todoJSON = {"statut": "fini"};
+        alert(todoJSON.statut);
+        const res = await axios.patch("http://localhost:9000/api/todos/" + event.target.id, todoJSON);
+        console.log();
+        console.log(res.data);
+        afficherTout();
     }
 
     return (
@@ -64,8 +70,8 @@ function App() {
                 <Button style={{marginTop: 50}} onClick={afficherTout}>Afficher mes Todos</Button>
 
                 <ListGroup style={{color: "black"}}>
-                    {todos.map(todo => <ListGroup.Item>{todo.titre}
-                    <Button style={{marginLeft: 20}} id = {todo._id} variant="success" type= "submit" onClick={fait} className="mt-3 mb-3">&#10003;</Button>
+                    {todos.map(todo => <ListGroup.Item style={todo.statut == "fini" ? { textDecoration:"line-through", backgroundColor:"grey"} : null}>{todo.titre}
+                    <Button style={ todo.statut == "fini" ? {display: "none"} : {marginLeft: 20}} id = {todo._id} variant="success" type= "submit" onClick={fait} className="mt-3 mb-3">&#10003;</Button>
                     <Button style={{marginLeft: 20, paddingLeft: 13, paddingRight: 13, fontStyle:"italic" }} id = {todo._id} variant="danger" type= "submit" onClick={retirer} className="mt-3 mb-3">
                     X</Button>
                     </ListGroup.Item>)}
