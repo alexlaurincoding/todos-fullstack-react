@@ -9,6 +9,11 @@ router.get("/todos/:categorie/", async  (req, res) => {
     res.send(todo);
 })
 
+router.get("/todos", async  (req, res) => {
+    const todo = await Todo.find();
+    res.send(todo);
+})
+
 
 router.post("/todos", async  (req, res) => {
     try {
