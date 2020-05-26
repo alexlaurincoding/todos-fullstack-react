@@ -6,12 +6,12 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import ListGroup from 'react-bootstrap/ListGroup';
 
-const FaitRetirer = ({afficherTout, todos}) => {
+const FaitRetirer = ({afficher, todos}) => {
     const retirer = async(event) => {
         event.preventDefault();
         const link = "http://localhost:9000/api/todos/" + event.target.id;
         const res = await axios.delete(link);
-        afficherTout();
+        afficher();
         event.preventDefault();
     }
 
@@ -22,7 +22,7 @@ const FaitRetirer = ({afficherTout, todos}) => {
         const res = await axios.patch("http://localhost:9000/api/todos/" + event.target.id, todoJSON);
         console.log();
         console.log(res.data);
-        afficherTout();
+        afficher();
     }
 return(
     <ListGroup style={{color: "black"}}>

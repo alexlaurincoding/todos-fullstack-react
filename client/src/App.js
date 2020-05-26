@@ -8,22 +8,25 @@ import ListGroup from 'react-bootstrap/ListGroup';
 import AjouterTodo from "./AjouterTodo";
 import FaitRetirer from "./FaitRetirer";
 function App() {
+
     const [todos, setTodos] = useState([]);
 
 
-    const afficherTout = async() => {
-        const res = await axios.get('http://localhost:9000/api/todos');
-        setTodos(res.data);
-        console.log(res.data);
+    const afficherTout = async(categorie) => {
+        if (categorie == "tous") {
+            const res = await axios.get('http://localhost:9000/api/todos');
+            setTodos(res.data);
+            //console.log(res.data);
+        }
     }
 
     return (
         <>
         <div className="App">
             <header className="App-header">
-                <AjouterTodo afficherTout={afficherTout} />
-                <Button style={{marginTop: 50}} onClick={afficherTout}>Afficher mes Todos</Button>
-                <FaitRetirer afficherTout={afficherTout} todos={todos}/>
+                <AjouterTodo afficher={() => afficherTout("tous")} />
+                <Button style={{marginTop: 50}} onClick={() => afficherTout("tous")}>Afficher mes Todos</Button>
+                <FaitRetirer afficher={() => afficherTout("tous")} todos={todos}/>
             </header>
         </div>
         </>

@@ -6,7 +6,7 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import ListGroup from 'react-bootstrap/ListGroup';
 
-const AjouterTodo = ({afficherTout}) =>{
+const AjouterTodo = ({afficher}) =>{
 
     const [titreAjout, setTitreAjout] = useState("");
     const [categorieAjout, setCategorieAjout] = useState("");
@@ -21,7 +21,7 @@ const AjouterTodo = ({afficherTout}) =>{
         const res = await axios.post("http://localhost:9000/api/todos", todoJSON);
         console.log();
         console.log(res.data);
-        afficherTout();
+        afficher();
     }
 
 return(
