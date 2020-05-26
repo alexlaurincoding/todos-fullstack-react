@@ -5,12 +5,12 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import ListGroup from 'react-bootstrap/ListGroup';
-
+import AjouterTodo from "./AjouterTodo";
+import FaitRetirer from "./FaitRetirer";
 function App() {
     const [affichage, setAffichage] = useState("");
     const [todos, setTodos] = useState([]);
-    const [titreAjout, setTitreAjout] = useState("");
-    const [categorieAjout, setCategorieAjout] = useState("");
+
 
     const afficherTout = async() => {
         const res = await axios.get('http://localhost:9000/api/todos');
@@ -18,6 +18,7 @@ function App() {
         console.log(res.data);
     }
 
+<<<<<<< HEAD
     const debuter = (event) => {
         if (affichage == ""){
             setAffichage("tout");
@@ -75,10 +76,13 @@ function App() {
         afficherTout();
     }
 
+=======
+>>>>>>> bc52ec2fe473ba95acc372ca770bc0732e41281f
     return (
         <>
         <div className="App">
             <header className="App-header">
+<<<<<<< HEAD
 
                 {affichage == "" ?
                     <Debuter/>
@@ -109,6 +113,11 @@ function App() {
                     null
                 }
 
+=======
+                <AjouterTodo afficherTout={afficherTout} />
+                <Button style={{marginTop: 50}} onClick={afficherTout}>Afficher mes Todos</Button>
+                <FaitRetirer afficherTout={afficherTout} todos={todos}/>
+>>>>>>> bc52ec2fe473ba95acc372ca770bc0732e41281f
             </header>
         </div>
         </>
