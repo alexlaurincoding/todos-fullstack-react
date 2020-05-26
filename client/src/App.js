@@ -13,11 +13,9 @@ function App() {
 
 
     const afficherTout = async(categorie) => {
-        if (categorie == "tous") {
-            const res = await axios.get('http://localhost:9000/api/todos');
-            setTodos(res.data);
-            //console.log(res.data);
-        }
+        const url = categorie == "tous"  ? 'http://localhost:9000/api/todos' : `http://localhost:9000/api/todos/categorie/${categorie}`;
+        const res = await axios.get(url);
+        setTodos(res.data);
     }
 
     return (
@@ -25,7 +23,7 @@ function App() {
         <div className="App">
             <header className="App-header">
                 <AjouterTodo afficher={() => afficherTout("tous")} />
-                <Button style={{marginTop: 50}} onClick={() => afficherTout("tous")}>Afficher mes Todos</Button>
+                <Button style={{marginTop: 50}} onClick={() => afficherTout("maison")}>Afficher mes Todos</Button>
                 <FaitRetirer afficher={() => afficherTout("tous")} todos={todos}/>
             </header>
         </div>

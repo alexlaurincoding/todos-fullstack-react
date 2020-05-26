@@ -6,7 +6,7 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import ListGroup from 'react-bootstrap/ListGroup';
 
-const CategorieAffichage = ({afficherTout}) =>{
+const CategorieAffichage = ({afficher}) =>{
 
     const [categorie, setCategorie] = useState("");
 

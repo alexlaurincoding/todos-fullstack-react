@@ -3,7 +3,7 @@ const router = express.Router();
 const Todo = require("./models/Todo");
 
 
-router.get("/todos/:categorie/", async  (req, res) => {
+router.get("/todos/categorie/:categorie/", async  (req, res) => {
     const categorieArgument = req.param('categorie');
     const todo = await Todo.find({categorie: categorieArgument});
     res.send(todo);
