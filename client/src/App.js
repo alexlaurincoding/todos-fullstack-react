@@ -24,7 +24,6 @@ function App() {
                 const res = await axios.get(url);
                 setTodos(res.data);
             }
-
         }
         else{
             if (categ == "aucun"){
@@ -35,8 +34,16 @@ function App() {
                 const res = await axios.get(url);
                 setTodos(res.data);
             }
+
         }
 
+    }
+
+    let i = todos.length;
+    while(i--){
+        if (todos[i].statut === "fini"){
+            todos.splice(i, 1);
+        }
     }
 
     return (
