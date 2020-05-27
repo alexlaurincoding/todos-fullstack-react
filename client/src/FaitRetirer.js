@@ -7,6 +7,7 @@ import Form from 'react-bootstrap/Form';
 import ListGroup from 'react-bootstrap/ListGroup';
 
 const FaitRetirer = ({afficher, todos}) => {
+
     const retirer = async(event) => {
         event.preventDefault();
         const link = "http://localhost:9000/api/todos/" + event.target.id;

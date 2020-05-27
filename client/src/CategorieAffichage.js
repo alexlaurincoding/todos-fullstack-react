@@ -6,22 +6,29 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import ListGroup from 'react-bootstrap/ListGroup';
 
-const CategorieAffichage = ({afficher}) =>{
+const CategorieAffichage = ({afficher, setCategorie}) =>{
 
-    const [categorie, setCategorie] = useState("");
+    const modifierCategorie = (event) => {
+        setCategorie(event.target.value);
+    }
 
-    <Form>
-        <Form.Control as="select" onChange={modifierCategorie}>
-            <option value="aucune">--Catégorie--</option>
-            <option value="maison">Maison</option>
-            <option value="travail">Travail</option>
-            <option value="loisir">Loisir</option>
-            <option value="autre">Autre</option>
-        </Form.Control>
-        <Button style={{marginTop: 5}} variant="success" type="submit" onClick={afficher}>
-            Afficher
-        </Button>
-    </Form>
+    const appelerAffichage = (event) => {
+        setCategorie(event.target.value);
+        afficher();
+    }
+
+    return(
+
+        <Form style={{marginTop: 100}}>
+            <Form.Control as="select" onChange={appelerAffichage}>
+                <option value="tous">Tous</option>
+                <option value="maison">Maison</option>
+                <option value="travail">Travail</option>
+                <option value="loisir">Loisir</option>
+                <option value="autre">Autre</option>
+            </Form.Control>
+        </Form>
+    )
 }
 
 export default CategorieAffichage;
