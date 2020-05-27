@@ -8,6 +8,7 @@ import ListGroup from 'react-bootstrap/ListGroup';
 import AjouterTodo from "./AjouterTodo";
 import FaitRetirer from "./FaitRetirer";
 import CategorieAffichage from "./CategorieAffichage";
+import FormatAffichage from "./FormatAffichage";
 function App() {
 
     const [todos, setTodos] = useState([]);
@@ -44,6 +45,7 @@ function App() {
         <div className="App">
             <header className="App-header">
                 <AjouterTodo afficher={afficher} />
+                <FormatAffichage afficher={afficher} setCategorie={setCategorie}/>
                 <CategorieAffichage afficher={afficher} setCategorie={setCategorie}/>
                 <FaitRetirer afficher={afficher} todos={todos}/>
             </header>

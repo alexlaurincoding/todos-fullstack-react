@@ -31,45 +31,30 @@ const FormatAffichage = ({afficher, setCategorie}) =>{
 
     return (
 
-        <div>
+        <div style={{marginTop: 20}}>
+            <p>Les todo complétés sont:</p>
             <Radio
                 checked={selectedValue === 'aucun'}
                 onChange={handleChange}
                 value="aucun"
                 name="radio-button-demo"
                 inputProps={{ 'aria-label': 'aucun' }}
-            />Aucun
+            />cacher
             <Radio
                 checked={selectedValue === 'tous'}
                 onChange={handleChange}
                 value="tous"
                 name="radio-button-demo"
                 inputProps={{ 'aria-label': 'tous' }}
-            />Tous
-            <GreenRadio
+            />afficher
+            <Radio
                 checked={selectedValue === 'Travail'}
                 onChange={handleChange}
                 value="Travail"
                 name="radio-button-demo"
                 inputProps={{ 'aria-label': 'Travail' }}
-            />Travail
-            <Radio
-                checked={selectedValue === 'Loisir'}
-                onChange={handleChange}
-                value="Loisir"
-                color="default"
-                name="radio-button-demo"
-                inputProps={{ 'aria-label': 'Loisir' }}
-            />Loisir
-            <Radio
-                checked={selectedValue === 'Autre'}
-                onChange={handleChange}
-                value="Autre"
-                color="default"
-                name="radio-button-demo"
-                inputProps={{ 'aria-label': 'Autre' }}
-                size="small"
-            />Autre
+            />à la fin de la liste
+
         </div>
 
 
