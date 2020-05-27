@@ -17,7 +17,6 @@ const AjouterTodo = ({afficher}) =>{
     const ajouter = async(event) => {
         event.preventDefault();
         const todoJSON = {"titre": titreAjout, "categorie": categorieAjout};
-
         const res = await axios.post("http://localhost:9000/api/todos", todoJSON);
         console.log();
         console.log(res.data);

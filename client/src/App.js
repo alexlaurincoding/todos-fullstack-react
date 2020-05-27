@@ -13,10 +13,30 @@ function App() {
     const [todos, setTodos] = useState([]);
     const [categorie, setCategorie] = useState("tous");
 
-    const afficher = async() => {
-        const url = categorie == "tous"  ? 'http://localhost:9000/api/todos' : `http://localhost:9000/api/todos/categorie/${categorie}`;
-        const res = await axios.get(url);
-        setTodos(res.data);
+    const afficher = async(categ=categorie) => {
+        let url;
+        if (categ == categorie){
+            if (categorie == "aucun"){
+                setTodos([]);
+            }
+            else{
+                url = categorie == "tous"  ? 'http://localhost:9000/api/todos' : categorie == "aucun" ? null : `http://localhost:9000/api/todos/categorie/${categorie}`;
+                const res = await axios.get(url);
+                setTodos(res.data);
+            }
+
+        }
+        else{
+            if (categ == "aucun"){
+                setTodos([]);
+            }
+            else{
+                url = categ == "tous"  ? 'http://localhost:9000/api/todos' : categ == "aucun" ? null :  `http://localhost:9000/api/todos/categorie/${categ}`;
+                const res = await axios.get(url);
+                setTodos(res.data);
+            }
+        }
+
     }
 
     return (

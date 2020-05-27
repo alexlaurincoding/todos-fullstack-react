@@ -14,13 +14,15 @@ const CategorieAffichage = ({afficher, setCategorie}) =>{
 
     const appelerAffichage = (event) => {
         setCategorie(event.target.value);
-        afficher();
+        afficher(event.target.value);
     }
 
     return(
 
         <Form style={{marginTop: 100}}>
+            Affichage:
             <Form.Control as="select" onChange={appelerAffichage}>
+                <option value="aucun">Aucun</option>
                 <option value="tous">Tous</option>
                 <option value="maison">Maison</option>
                 <option value="travail">Travail</option>
