@@ -2,7 +2,10 @@ const express = require("express");
 const router = express.Router();
 const Todo = require("./models/Todo");
 
-
+router.get("/todos", async  (req, res) => {
+    const todo = await Todo.find();
+    res.send(todo);
+})
 router.get("/todos/:categorie/", async  (req, res) => {
     const categorieArgument = req.param('categorie');
     const todo = await Todo.find({categorie: categorieArgument});
