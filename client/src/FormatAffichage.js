@@ -6,7 +6,7 @@ import { green } from '@material-ui/core/colors';
 import Radio from '@material-ui/core/Radio';
 import Form from "react-bootstrap/Form";
 
-const FormatAffichage = ({afficher, setCategorie}) =>{
+const FormatAffichage = ({affichageCompletes, setAffichageCompletes}) =>{
 
 
     const GreenRadio = withStyles({
@@ -20,12 +20,10 @@ const FormatAffichage = ({afficher, setCategorie}) =>{
     })((props) => <Radio color="default" {...props} />);
 
 
-    const [selectedValue, setSelectedValue] = React.useState('Travail');
+
 
     const handleChange = (event) => {
-        setSelectedValue(event.target.value);
-        setCategorie(event.target.value);
-        afficher(event.target.value);
+        setAffichageCompletes(event.target.value);
     };
 
 
@@ -34,25 +32,25 @@ const FormatAffichage = ({afficher, setCategorie}) =>{
         <div style={{marginTop: 20}}>
             <p>Les todo complétés sont:</p>
             <Radio
-                checked={selectedValue === 'aucun'}
+                checked={affichageCompletes === 'cacher'}
                 onChange={handleChange}
-                value="aucun"
+                value="cacher"
                 name="radio-button-demo"
-                inputProps={{ 'aria-label': 'aucun' }}
+                inputProps={{ 'aria-label': 'cacher' }}
             />cacher
-            <Radio
-                checked={selectedValue === 'tous'}
+            <GreenRadio
+                checked={affichageCompletes === 'afficher'}
                 onChange={handleChange}
-                value="tous"
+                value="afficher"
                 name="radio-button-demo"
-                inputProps={{ 'aria-label': 'tous' }}
+                inputProps={{ 'aria-label': 'afficher' }}
             />afficher
             <Radio
-                checked={selectedValue === 'Travail'}
+                checked={affichageCompletes === 'fin'}
                 onChange={handleChange}
-                value="Travail"
+                value="fin"
                 name="radio-button-demo"
-                inputProps={{ 'aria-label': 'Travail' }}
+                inputProps={{ 'aria-label': 'fin' }}
             />à la fin de la liste
 
         </div>

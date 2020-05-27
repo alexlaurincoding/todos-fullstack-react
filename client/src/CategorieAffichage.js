@@ -30,6 +30,8 @@ const CategorieAffichage = ({afficher, setCategorie}) =>{
                 <option value="autre">Autre</option>
             </Form.Control>
         </Form>
+
+
     )
 }
 

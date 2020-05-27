@@ -13,6 +13,7 @@ function App() {
 
     const [todos, setTodos] = useState([]);
     const [categorie, setCategorie] = useState("tous");
+    const [affichageCompletes, setAffichageCompletes] = useState('cacher');
 
     const afficher = async(categ=categorie) => {
         let url;
@@ -45,7 +46,7 @@ function App() {
         <div className="App">
             <header className="App-header">
                 <AjouterTodo afficher={afficher} />
-                <FormatAffichage afficher={afficher} setCategorie={setCategorie}/>
+                <FormatAffichage setAffichageCompletes={setAffichageCompletes} affichageCompletes = {affichageCompletes}/>
                 <CategorieAffichage afficher={afficher} setCategorie={setCategorie}/>
                 <FaitRetirer afficher={afficher} todos={todos}/>
             </header>
