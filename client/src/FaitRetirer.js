@@ -19,7 +19,6 @@ const FaitRetirer = ({afficher, todos}) => {
     const fait = async(event) => {
         event.preventDefault();
         const todoJSON = {"statut": "fini"};
-        alert(todoJSON.statut);
         const res = await axios.patch("http://localhost:9000/api/todos/" + event.target.id, todoJSON);
         console.log();
         console.log(res.data);
