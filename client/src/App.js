@@ -57,6 +57,7 @@ function App() {
         <>
         <div className="App">
             <header className="App-header">
+                <h1 style={{marginTop:10, marginBottom: 20}}>Mes Todos</h1>
                 <AjouterTodo afficher={afficher} />
                 <FormatAffichage afficher={afficher} setAffichageCompletes={setAffichageCompletes} affichageCompletes={affichageCompletes}/>
                 <CategorieAffichage afficher={afficher} setCategorie={setCategorie}/>
