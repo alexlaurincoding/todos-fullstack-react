@@ -8,10 +8,12 @@ import ListGroup from 'react-bootstrap/ListGroup';
 import AjouterTodo from "./AjouterTodo";
 import FaitRetirer from "./FaitRetirer";
 import CategorieAffichage from "./CategorieAffichage";
+import FormatAffichage from "./FormatAffichage";
 function App() {
 
     const [todos, setTodos] = useState([]);
-    const [categorie, setCategorie] = useState("tous");
+    const [categorie, setCategorie] = useState("aucun");
+    const [affichageCompletes, setAffichageCompletes] = useState('cacher');
 
     const afficher = async(categ=categorie) => {
         let url;
@@ -39,11 +41,24 @@ function App() {
 
     }
 
+    if (affichageCompletes == "cacher"){
+        let i = todos.length;
+        while(i--){
+            if (todos[i].statut === "fini"){
+                todos.splice(i, 1);
+            }
+        }
+    }else if (affichageCompletes == "fin"){
+        todos.sort((a, b) => a.statut === "fini" && b.statut !== "fini" ? 1: -1);
+    }
+
+
     return (
         <>
         <div className="App">
             <header className="App-header">
                 <AjouterTodo afficher={afficher} />
+                <FormatAffichage afficher={afficher} setAffichageCompletes={setAffichageCompletes} affichageCompletes={affichageCompletes}/>
                 <CategorieAffichage afficher={afficher} setCategorie={setCategorie}/>
                 <FaitRetirer afficher={afficher} todos={todos}/>
             </header>

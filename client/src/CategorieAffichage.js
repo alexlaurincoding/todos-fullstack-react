@@ -19,7 +19,7 @@ const CategorieAffichage = ({afficher, setCategorie}) =>{
 
     return(
 
-        <Form style={{marginTop: 100}}>
+        <Form style={{marginTop: 20}}>
             Affichage:
             <Form.Control as="select" onChange={appelerAffichage}>
                 <option value="aucun">Aucun</option>
@@ -30,6 +30,8 @@ const CategorieAffichage = ({afficher, setCategorie}) =>{
                 <option value="autre">Autre</option>
             </Form.Control>
         </Form>
+
+
     )
 }
 
