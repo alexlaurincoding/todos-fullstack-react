@@ -1,0 +1,24 @@
+{
+  "name": "todo-fullstack-equipealainalexfinal",
+  "version": "1.0.0",
+  "description": "# Instructions Développez une application React et un serveur avec une API pour faire la gestion d'une liste todo.",
+  "main": "index.js",
+  "dependencies": {
+    "bootstrap": "^4.5.0",
+    "bootstrap-react": "^0.3.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HugoCodeStar/todo-fullstack-equipealainalexfinal.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/HugoCodeStar/todo-fullstack-equipealainalexfinal/issues"
+  },
+  "homepage": "https://github.com/HugoCodeStar/todo-fullstack-equipealainalexfinal#readme"
+}
