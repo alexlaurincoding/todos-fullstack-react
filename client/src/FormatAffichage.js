@@ -6,7 +6,7 @@ import { green } from '@material-ui/core/colors';
 import Radio from '@material-ui/core/Radio';
 import Form from "react-bootstrap/Form";
 
-const FormatAffichage = ({affichageCompletes, setAffichageCompletes}) =>{
+const FormatAffichage = ({afficher, affichageCompletes, setAffichageCompletes}) =>{
 
 
     const GreenRadio = withStyles({
@@ -24,12 +24,13 @@ const FormatAffichage = ({affichageCompletes, setAffichageCompletes}) =>{
 
     const handleChange = (event) => {
         setAffichageCompletes(event.target.value);
+        afficher();
     };
 
 
     return (
 
-        <div style={{marginTop: 20}}>
+        <div style={{marginTop: 100}}>
             <p>Les todo complétés sont:</p>
             <Radio
                 checked={affichageCompletes === 'cacher'}
@@ -37,14 +38,14 @@ const FormatAffichage = ({affichageCompletes, setAffichageCompletes}) =>{
                 value="cacher"
                 name="radio-button-demo"
                 inputProps={{ 'aria-label': 'cacher' }}
-            />cacher
+            />cachés
             <GreenRadio
                 checked={affichageCompletes === 'afficher'}
                 onChange={handleChange}
                 value="afficher"
                 name="radio-button-demo"
                 inputProps={{ 'aria-label': 'afficher' }}
-            />afficher
+            />affichés
             <Radio
                 checked={affichageCompletes === 'fin'}
                 onChange={handleChange}
